@@ -14,18 +14,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// Set active nav link based on current page
-document.addEventListener("DOMContentLoaded", function () {
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  const navLinks = document.querySelectorAll(".nav-link");
 
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href").endsWith(currentPage)) {
-      link.classList.add("active");
-    }
-  });
-});
 
 // Hero Slider Functionality
 document.addEventListener("DOMContentLoaded", function () {

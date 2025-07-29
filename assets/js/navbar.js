@@ -1,142 +1,45 @@
-/**
- * Navigation component functionality
- */
+// Mobile Menu Toggle
+document
+  .getElementById("mobile-menu-button")
+  .addEventListener("click", function () {
+    this.classList.toggle("active");
+    document.getElementById("mobile-menu").classList.toggle("active");
+    document.body.classList.toggle("no-scroll");
+  });
 
-import { debounce } from "lodash"
-import { smoothScrollTo } from "./utils/smoothScroll"
+// Close menu when clicking on a link
+document.querySelectorAll("#mobile-menu a").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.getElementById("mobile-menu-button").classList.remove("active");
+    document.getElementById("mobile-menu").classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  });
+});
 
-class Navbar {
-  constructor() {
-    this.navbar = document.getElementById("navbar")
-    this.mobileMenuButton = document.getElementById("mobile-menu-button")
-    this.mobileMenu = document.getElementById("mobile-menu")
-    this.hamburger = this.mobileMenuButton?.querySelector(".hamburger")
-    this.isMenuOpen = false
-
-    this.init()
+// Close menu when clicking outside
+document.getElementById("mobile-menu").addEventListener("click", function (e) {
+  if (e.target === this) {
+    document.getElementById("mobile-menu-button").classList.remove("active");
+    this.classList.remove("active");
+    document.body.classList.remove("no-scroll");
   }
+});
 
-  init() {
-    this.setupScrollEffect()
-    this.setupMobileMenu()
-    this.setupSmoothScrolling()
-    this.setupDropdowns()
+// Navbar scroll effect
+window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("navbar");
+  if (window.scrollY > 10) {
+    navbar.classList.add("navbar-solid");
+  } else {
+    navbar.classList.remove("navbar-solid");
   }
+});
 
-  /**
-   * Setup navbar scroll effect
-   */
-  setupScrollEffect() {
-    const handleScroll = debounce(() => {
-      if (window.scrollY > 50) {
-        this.navbar.classList.add("navbar-solid")
-      } else {
-        this.navbar.classList.remove("navbar-solid")
-      }
-    }, 10)
-
-    window.addEventListener("scroll", handleScroll)
+// Auto-close mobile menu on resize
+window.addEventListener("resize", function () {
+  if (window.innerWidth > 768) {
+    document.getElementById("mobile-menu-button").classList.remove("active");
+    document.getElementById("mobile-menu").classList.remove("active");
+    document.body.classList.remove("no-scroll");
   }
-
-  /**
-   * Setup mobile menu functionality
-   */
-  setupMobileMenu() {
-    if (!this.mobileMenuButton || !this.mobileMenu) return
-
-    this.mobileMenuButton.addEventListener("click", () => {
-      this.toggleMobileMenu()
-    })
-
-    // Close menu when clicking on links
-    this.mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        this.closeMobileMenu()
-      })
-    })
-
-    // Close menu when clicking outside
-    document.addEventListener("click", (e) => {
-      if (this.isMenuOpen && !this.navbar.contains(e.target)) {
-        this.closeMobileMenu()
-      }
-    })
-  }
-
-  /**
-   * Toggle mobile menu
-   */
-  toggleMobileMenu() {
-    this.isMenuOpen = !this.isMenuOpen
-
-    if (this.isMenuOpen) {
-      this.openMobileMenu()
-    } else {
-      this.closeMobileMenu()
-    }
-  }
-
-  /**
-   * Open mobile menu
-   */
-  openMobileMenu() {
-    this.mobileMenu.classList.add("active")
-    this.hamburger.classList.add("active")
-    this.isMenuOpen = true
-
-    // Prevent body scroll
-    document.body.style.overflow = "hidden"
-  }
-
-  /**
-   * Close mobile menu
-   */
-  closeMobileMenu() {
-    this.mobileMenu.classList.remove("active")
-    this.hamburger.classList.remove("active")
-    this.isMenuOpen = false
-
-    // Restore body scroll
-    document.body.style.overflow = ""
-  }
-
-  /**
-   * Setup smooth scrolling for navigation links
-   */
-  setupSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault()
-        const targetId = link.getAttribute("href").substring(1)
-        smoothScrollTo(targetId)
-      })
-    })
-  }
-
-  /**
-   * Setup dropdown menus
-   */
-  setupDropdowns() {
-    const dropdowns = document.querySelectorAll(".dropdown")
-
-    dropdowns.forEach((dropdown) => {
-      const button = dropdown.querySelector("button")
-      const menu = dropdown.querySelector(".dropdown-menu")
-
-      if (!button || !menu) return
-
-      // Close dropdown when clicking outside
-      document.addEventListener("click", (e) => {
-        if (!dropdown.contains(e.target)) {
-          menu.classList.remove("opacity-100", "visible", "scale-y-100")
-          menu.classList.add("opacity-0", "invisible", "scale-y-90")
-        }
-      })
-    })
-  }
-}
-
-// Initialize navbar when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  new Navbar()
-})
+});

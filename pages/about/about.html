@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us - Hyper Data Digital</title>
+    <title>About Us - Hyperdata Digital</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
 
     <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/navbar.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -128,13 +129,14 @@
           <div class="md:hidden">
             <button
               id="mobile-menu-button"
-              class="text-white hover:text-blue-400 focus:outline-none focus:text-blue-400"
+              class="text-white focus:outline-none"
             >
               <div class="hamburger">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
               </div>
+              <span class="sr-only">Toggle menu</span>
             </button>
           </div>
         </div>
@@ -149,11 +151,6 @@
             >Home</a
           >
           <a
-            href="/pages/about/about.html"
-            class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
-            >About</a
-          >
-          <a
             href="/pages/services/services.html"
             class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
             >Services</a
@@ -161,6 +158,12 @@
 
           <a
             href="/pages/about/about.html"
+            class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
+            >About</a
+          >
+
+          <a
+            href="/pages/contact/contact.html"
             class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
             >Contact</a
           >
@@ -174,7 +177,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div class="text-center">
           <h1 class="text-4xl md:text-5xl font-bold mb-6">
-            About Hyper Data Digital
+            About Hyperdata Digital
           </h1>
           <p class="text-xl md:text-2xl text-brand-blue-100 max-w-3xl mx-auto">
             Pioneering the future of technology with innovative solutions that
@@ -193,12 +196,11 @@
               Our Story
             </h2>
             <p class="text-lg text-gray-600 mb-6">
-              Founded in 2024, Hyper Data Digital emerged from a vision to
-              bridge the gap between cutting-edge technology and practical
-              business solutions. Our journey began with a small team of
-              passionate technologists who believed that every business,
-              regardless of size, deserves access to enterprise-level digital
-              solutions.
+              Founded in 2024, Hyperdata Digital emerged from a vision to bridge
+              the gap between cutting-edge technology and practical business
+              solutions. Our journey began with a small team of passionate
+              technologists who believed that every business, regardless of
+              size, deserves access to enterprise-level digital solutions.
             </p>
             <p class="text-lg text-gray-600 mb-6">
               Today, we've grown into a trusted partner for businesses across
@@ -698,7 +700,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="col-span-1 md:col-span-2">
             <h3 class="text-2xl font-bold mb-4 text-brand-blue-400">
-              Hyper Data Digital
+              Hyperdata Digital
             </h3>
             <p class="text-gray-300 mb-4 max-w-md">
               Leading technology company specializing in digital transformation,
@@ -767,7 +769,7 @@
         </div>
         <div class="border-t border-gray-800 mt-8 pt-8 text-center">
           <p class="text-gray-400">
-            &copy; 2024 Hyper Data Digital. All rights reserved.
+            &copy; 2025 Hyperdata Digital. All rights reserved.
           </p>
         </div>
       </div>
@@ -807,6 +809,17 @@
         const menu = document.getElementById("mobile-menu");
         menu.classList.toggle("hidden");
       }
+
+      // klik burger menu untuk tampilan mobile
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          document
+            .getElementById("mobile-menu-button")
+            .classList.remove("active");
+          document.getElementById("mobile-menu").classList.remove("active");
+          document.body.classList.remove("no-scroll");
+        }
+      });
     </script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hyper Data Digital - Leading Tech Solutions</title>
+    <title>Hyperdata Digital - Leading Tech Solutions</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
     <script src="/assets/js/main.js" defer></script>
     <!-- Google Fonts -->
@@ -163,13 +163,15 @@
           <div class="md:hidden">
             <button
               id="mobile-menu-button"
-              class="text-white hover:text-blue-400 focus:outline-none focus:text-blue-400"
+              class="text-white focus:outline-none"
             >
               <div class="hamburger">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+                <div class="bg"></div>
+                <span class="burger"></span>
+                <span class="burger"></span>
+                <span class="burger"></span>
               </div>
+              <span class="sr-only">Toggle menu</span>
             </button>
           </div>
         </div>
@@ -180,31 +182,23 @@
         <div class="px-2 pt-2 pb-3 space-y-1 bg-white/10 backdrop-blur-lg">
           <a
             href="#home"
-            class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
+            class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium"
             >Home</a
           >
           <a
-            href="#services"
-            class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
+            href="/pages/services/services.html"
+            class="nav-link block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
             >Services</a
           >
+
           <a
-            href="#expertise"
+            href="/pages/about/about.html"
             class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
-            >Expertise</a
+            >About</a
           >
+
           <a
-            href="#portfolio"
-            class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
-            >Portfolio</a
-          >
-          <a
-            href="#testimonials"
-            class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
-            >Testimonials</a
-          >
-          <a
-            href="#contact"
+            href="/pages/contact/contact.html"
             class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
             >Contact</a
           >
@@ -300,7 +294,7 @@
             Our Advantages
           </span>
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Why Choose Hyper Data Digital?
+            Why Choose Hyperdata Digital?
           </h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             We combine technical expertise with business acumen to deliver
@@ -399,26 +393,6 @@
               tailored to your specific business requirements.
             </p>
           </div>
-        </div>
-
-        <div class="mt-12 text-center">
-          <a
-            href="#"
-            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-          >
-            See Our Success Stories
-            <svg
-              class="ml-3 -mr-1 h-5 w-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </a>
         </div>
       </div>
     </section>
@@ -655,7 +629,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="col-span-1 md:col-span-2">
             <h3 class="text-2xl font-bold mb-4 text-brand-blue-400">
-              Hyper Data Digital
+              Hyperdata Digital
             </h3>
             <p class="text-gray-300 mb-4 max-w-md">
               Leading technology company specializing in digital transformation,
@@ -724,7 +698,7 @@
         </div>
         <div class="border-t border-gray-800 mt-8 pt-8 text-center">
           <p class="text-gray-400">
-            &copy; 2024 Hyper Data Digital. All rights reserved.
+            &copy; 2025 Hyperdata Digital. All rights reserved.
           </p>
         </div>
       </div>
@@ -733,7 +707,6 @@
     <script src="assets/js/carousel.js"></script>
     <script src="assets/js/contact-form.js"></script>
     <script src="assets/js/hero.js"></script>
-    <script src="assets/js/main.js"></script>
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/skills.js"></script>
 
@@ -843,6 +816,17 @@
             startSlider();
           }
         });
+      });
+
+      // klik burger menu untuk tampilan mobile
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          document
+            .getElementById("mobile-menu-button")
+            .classList.remove("active");
+          document.getElementById("mobile-menu").classList.remove("active");
+          document.body.classList.remove("no-scroll");
+        }
       });
     </script>
   </body>
