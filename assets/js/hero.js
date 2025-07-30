@@ -1,113 +1,76 @@
-// Hero Slider Functionality - Optimized Version
+// Hero Slider Functionality
 document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".hero-slide");
   const indicators = document.querySelectorAll(".slide-indicator");
   let currentSlide = 0;
-  const totalSlides = slides.length;
-  let slideInterval;
-  let isHovering = false;
+  const slideCount = slides.length;
 
-  // Simple preload images
-  function preloadImages() {
-    slides.forEach((slide) => {
-      const imgSrc = slide.style.backgroundImage.replace(
-        /^url\(['"](.+)['"]\)/,
-        "$1"
-      );
-      const img = new Image();
-      img.src = imgSrc;
-    });
-  }
-
-  // Initialize slider
-  function initSlider() {
-    // Show first slide immediately
-    slides[0].classList.add("active");
-    indicators[0].classList.add("active");
-
-    // Preload all images
-    preloadImages();
-
-    // Start auto-rotation
-    startSlider();
-  }
-
-  // Show slide with transition
+  // Function to show a specific slide
   function showSlide(index) {
-    // Hide all slides
     slides.forEach((slide) => slide.classList.remove("active"));
     indicators.forEach((indicator) => indicator.classList.remove("active"));
 
-    // Show new slide
     slides[index].classList.add("active");
     indicators[index].classList.add("active");
     currentSlide = index;
   }
 
-  // Next slide function
+  // Auto-advance slides every 3 seconds
   function nextSlide() {
-    if (!isHovering) {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    }
+    currentSlide = (currentSlide + 1) % slideCount;
+    showSlide(currentSlide);
   }
 
-  // Start slider
-  function startSlider() {
-    if (!slideInterval) {
-      slideInterval = setInterval(nextSlide, 8000); // 5 seconds interval
-    }
-  }
-
-  // Stop slider
-  function stopSlider() {
-    clearInterval(slideInterval);
-    slideInterval = null;
-  }
-
-  // Initialize
-  initSlider();
+  let slideInterval = setInterval(nextSlide, 3000);
 
   // Pause on hover
-  const heroSection =
-    document.querySelector(".hero-section") ||
-    document.querySelector(".relative.h-screen");
-  if (heroSection) {
-    heroSection.addEventListener("mouseenter", () => {
-      isHovering = true;
-      stopSlider();
-    });
-
-    heroSection.addEventListener("mouseleave", () => {
-      isHovering = false;
-      startSlider();
-    });
-  }
-
-  // Click indicators
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener("click", () => {
-      stopSlider();
-      showSlide(index);
-      startSlider();
-    });
+  const heroSection = document.querySelector(".relative.h-screen");
+  heroSection.addEventListener("mouseenter", () =>
+    clearInterval(slideInterval)
+  );
+  heroSection.addEventListener("mouseleave", () => {
+    slideInterval = setInterval(nextSlide, 3000);
   });
 
-  // Cleanup on page hide
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      stopSlider();
-    } else {
-      startSlider();
-    }
+  // Click indicators to navigate
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      clearInterval(slideInterval);
+      showSlide(index);
+      slideInterval = setInterval(nextSlide, 3000);
+    });
   });
 });
 
-// klik burger menu untuk tampilan mobile
-window.addEventListener("resize", function () {
-  if (window.innerWidth > 768) {
-    document.getElementById("mobile-menu-button").classList.remove("active");
-    document.getElementById("mobile-menu").classList.remove("active");
-    document.body.classList.remove("no-scroll");
-  }
+// Tambahkan di script Anda
+document.addEventListener("DOMContentLoaded", function () {
+  // Buat elemen transisi
+  const transitionEl = document.createElement("div");
+  transitionEl.className = "page-transition";
+  document.body.appendChild(transitionEl);
+
+  // Tangani semua link internal
+  document.querySelectorAll('a[href^="/"], a[href^="http"]').forEach((link) => {
+    link.addEventListener("click", function (e) {
+      // Skip untuk link yang memiliki class tertentu atau target blank
+      if (
+        this.classList.contains("no-transition") ||
+        this.target === "_blank" ||
+        this.href.includes("#")
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+      const href = this.href;
+
+      // Aktifkan efek transisi
+      transitionEl.classList.add("active");
+
+      // Tunggu sebentar untuk efek visual
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500);
+    });
+  });
 });

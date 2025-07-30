@@ -43,3 +43,28 @@ window.addEventListener("resize", function () {
     document.body.classList.remove("no-scroll");
   }
 });
+
+
+// Set active nav link based on current page
+document.addEventListener('DOMContentLoaded', function() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath && (currentPage.includes(linkPath)) || 
+        (currentPage === '' && linkPath === '#home')) {
+      link.classList.add('active');
+    }
+  });
+
+  // Untuk mobile menu
+  const mobileLinks = document.querySelectorAll('.mobile-menu a');
+  mobileLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath && (currentPage.includes(linkPath)) || 
+        (currentPage === '' && linkPath === '#home')) {
+      link.classList.add('active');
+    }
+  });
+}); 
