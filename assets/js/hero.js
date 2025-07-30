@@ -1,111 +1,113 @@
-/**
- * Hero section animations
- */
+// Hero Slider Functionality - Optimized Version
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".hero-slide");
+  const indicators = document.querySelectorAll(".slide-indicator");
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  let slideInterval;
+  let isHovering = false;
 
-function prefersReducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
-}
-
-class HeroAnimations {
-  constructor() {
-    this.heroTitle = document.getElementById("hero-title")
-    this.heroSubtitle = document.getElementById("hero-subtitle")
-    this.heroButtons = document.getElementById("hero-buttons")
-
-    this.init()
+  // Simple preload images
+  function preloadImages() {
+    slides.forEach((slide) => {
+      const imgSrc = slide.style.backgroundImage.replace(
+        /^url\(['"](.+)['"]\)/,
+        "$1"
+      );
+      const img = new Image();
+      img.src = imgSrc;
+    });
   }
 
-  init() {
-    // Start animations when page loads
-    window.addEventListener("load", () => {
-      this.animateHeroContent()
-    })
+  // Initialize slider
+  function initSlider() {
+    // Show first slide immediately
+    slides[0].classList.add("active");
+    indicators[0].classList.add("active");
+
+    // Preload all images
+    preloadImages();
+
+    // Start auto-rotation
+    startSlider();
   }
 
-  /**
-   * Animate hero content with staggered timing
-   */
-  animateHeroContent() {
-    if (prefersReducedMotion()) {
-      this.showAllContent()
-      return
-    }
+  // Show slide with transition
+  function showSlide(index) {
+    // Hide all slides
+    slides.forEach((slide) => slide.classList.remove("active"));
+    indicators.forEach((indicator) => indicator.classList.remove("active"));
 
-    // Animate title words
-    this.animateTitle()
-
-    // Animate subtitle after title
-    setTimeout(() => {
-      this.animateSubtitle()
-    }, 1500)
-
-    // Animate buttons after subtitle
-    setTimeout(() => {
-      this.animateButtons()
-    }, 3000)
+    // Show new slide
+    slides[index].classList.add("active");
+    indicators[index].classList.add("active");
+    currentSlide = index;
   }
 
-  /**
-   * Animate title words one by one
-   */
-  animateTitle() {
-    const words = this.heroTitle.querySelectorAll(".hero-word")
-
-    words.forEach((word, index) => {
-      setTimeout(() => {
-        word.classList.add("animate")
-      }, index * 200)
-    })
-
-    // Show title container
-    setTimeout(() => {
-      this.heroTitle.style.opacity = "1"
-    }, 100)
-  }
-
-  /**
-   * Animate subtitle with typewriter effect
-   */
-  animateSubtitle() {
-    this.heroSubtitle.style.opacity = "1"
-    const typewriter = this.heroSubtitle.querySelector(".typewriter")
-
-    if (typewriter) {
-      typewriter.classList.add("animate")
+  // Next slide function
+  function nextSlide() {
+    if (!isHovering) {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
     }
   }
 
-  /**
-   * Animate hero buttons
-   */
-  animateButtons() {
-    this.heroButtons.style.opacity = "1"
-    this.heroButtons.style.animation = "fadeUp 0.6s ease-out forwards"
-  }
-
-  /**
-   * Show all content immediately (for reduced motion)
-   */
-  showAllContent() {
-    this.heroTitle.style.opacity = "1"
-    this.heroSubtitle.style.opacity = "1"
-    this.heroButtons.style.opacity = "1"
-
-    const words = this.heroTitle.querySelectorAll(".hero-word")
-    words.forEach((word) => {
-      word.style.opacity = "1"
-      word.style.transform = "translateY(0)"
-    })
-
-    const typewriter = this.heroSubtitle.querySelector(".typewriter")
-    if (typewriter) {
-      typewriter.style.width = "100%"
-      typewriter.style.borderRight = "none"
+  // Start slider
+  function startSlider() {
+    if (!slideInterval) {
+      slideInterval = setInterval(nextSlide, 8000); // 5 seconds interval
     }
   }
-}
 
-// Initialize hero animations
-document.addEventListener("DOMContentLoaded", () => {
-  new HeroAnimations()
-})
+  // Stop slider
+  function stopSlider() {
+    clearInterval(slideInterval);
+    slideInterval = null;
+  }
+
+  // Initialize
+  initSlider();
+
+  // Pause on hover
+  const heroSection =
+    document.querySelector(".hero-section") ||
+    document.querySelector(".relative.h-screen");
+  if (heroSection) {
+    heroSection.addEventListener("mouseenter", () => {
+      isHovering = true;
+      stopSlider();
+    });
+
+    heroSection.addEventListener("mouseleave", () => {
+      isHovering = false;
+      startSlider();
+    });
+  }
+
+  // Click indicators
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      stopSlider();
+      showSlide(index);
+      startSlider();
+    });
+  });
+
+  // Cleanup on page hide
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopSlider();
+    } else {
+      startSlider();
+    }
+  });
+});
+
+// klik burger menu untuk tampilan mobile
+window.addEventListener("resize", function () {
+  if (window.innerWidth > 768) {
+    document.getElementById("mobile-menu-button").classList.remove("active");
+    document.getElementById("mobile-menu").classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  }
+});

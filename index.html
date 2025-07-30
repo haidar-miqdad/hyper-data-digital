@@ -142,14 +142,19 @@
               </div> -->
 
               <a
+                href="/pages/about/about.html"
+                class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                >About</a
+              >
+              <a
                 href="/pages/services/services.html"
                 class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
                 >Services</a
               >
               <a
-                href="/pages/about/about.html"
+                href="/pages/solutions/solutions.html"
                 class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
-                >About</a
+                >Solutions</a
               >
               <a
                 href="/pages/contact/contact.html"
@@ -186,15 +191,21 @@
             >Home</a
           >
           <a
+            href="/pages/about/about.html"
+            class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
+            >About</a
+          >
+
+          <a
             href="/pages/services/services.html"
             class="nav-link block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
             >Services</a
           >
 
           <a
-            href="/pages/about/about.html"
-            class="block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
-            >About</a
+            href="/pages/solutions/solutions.html"
+            class="nav-link block px-3 py-2 text-white hover:text-blue-400 text-base font-medium"
+            >Solutions</a
           >
 
           <a
@@ -210,34 +221,34 @@
     <section class="relative h-screen text-white pt-20 overflow-hidden">
       <!-- Slide Backgrounds - Hanya satu yang active -->
       <div
-        class="hero-slide active"
-        style="background-image: url('/assets/images/MOCKUP 1.png')"
-      ></div>
-      <div
         class="hero-slide"
         style="background-image: url('/assets/images/MOCKUP 2.png')"
       ></div>
       <div
-        class="hero-slide"
-        style="background-image: url('/assets/images/MOCKUP 3.png')"
+        class="hero-slide active"
+        style="background-image: url('/assets/images/data center2.jpeg')"
       ></div>
+
       <div
         class="hero-slide"
         style="
-          background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+          background-image: url('/assets/images/maintenance\ server2.jpeg');
         "
       ></div>
+
       <div
         class="hero-slide"
-        style="
-          background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-        "
+        style="background-image: url('/assets/images/engineer.jpeg')"
       ></div>
+
       <div
         class="hero-slide"
-        style="
-          background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-        "
+        style="background-image: url('/assets/images/programming.jpeg')"
+      ></div>
+
+      <div
+        class="hero-slide"
+        style="background-image: url('/assets/images/server.jpeg')"
       ></div>
 
       <!-- Overlay -->
@@ -709,125 +720,5 @@
     <script src="assets/js/hero.js"></script>
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/skills.js"></script>
-
-    <script>
-      // Hero Slider Functionality - Optimized Version
-      document.addEventListener("DOMContentLoaded", function () {
-        const slides = document.querySelectorAll(".hero-slide");
-        const indicators = document.querySelectorAll(".slide-indicator");
-        let currentSlide = 0;
-        const totalSlides = slides.length;
-        let slideInterval;
-        let isHovering = false;
-
-        // Simple preload images
-        function preloadImages() {
-          slides.forEach((slide) => {
-            const imgSrc = slide.style.backgroundImage.replace(
-              /^url\(['"](.+)['"]\)/,
-              "$1"
-            );
-            const img = new Image();
-            img.src = imgSrc;
-          });
-        }
-
-        // Initialize slider
-        function initSlider() {
-          // Show first slide immediately
-          slides[0].classList.add("active");
-          indicators[0].classList.add("active");
-
-          // Preload all images
-          preloadImages();
-
-          // Start auto-rotation
-          startSlider();
-        }
-
-        // Show slide with transition
-        function showSlide(index) {
-          // Hide all slides
-          slides.forEach((slide) => slide.classList.remove("active"));
-          indicators.forEach((indicator) =>
-            indicator.classList.remove("active")
-          );
-
-          // Show new slide
-          slides[index].classList.add("active");
-          indicators[index].classList.add("active");
-          currentSlide = index;
-        }
-
-        // Next slide function
-        function nextSlide() {
-          if (!isHovering) {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-          }
-        }
-
-        // Start slider
-        function startSlider() {
-          if (!slideInterval) {
-            slideInterval = setInterval(nextSlide, 5000); // 5 seconds interval
-          }
-        }
-
-        // Stop slider
-        function stopSlider() {
-          clearInterval(slideInterval);
-          slideInterval = null;
-        }
-
-        // Initialize
-        initSlider();
-
-        // Pause on hover
-        const heroSection =
-          document.querySelector(".hero-section") ||
-          document.querySelector(".relative.h-screen");
-        if (heroSection) {
-          heroSection.addEventListener("mouseenter", () => {
-            isHovering = true;
-            stopSlider();
-          });
-
-          heroSection.addEventListener("mouseleave", () => {
-            isHovering = false;
-            startSlider();
-          });
-        }
-
-        // Click indicators
-        indicators.forEach((indicator, index) => {
-          indicator.addEventListener("click", () => {
-            stopSlider();
-            showSlide(index);
-            startSlider();
-          });
-        });
-
-        // Cleanup on page hide
-        document.addEventListener("visibilitychange", () => {
-          if (document.hidden) {
-            stopSlider();
-          } else {
-            startSlider();
-          }
-        });
-      });
-
-      // klik burger menu untuk tampilan mobile
-      window.addEventListener("resize", function () {
-        if (window.innerWidth > 768) {
-          document
-            .getElementById("mobile-menu-button")
-            .classList.remove("active");
-          document.getElementById("mobile-menu").classList.remove("active");
-          document.body.classList.remove("no-scroll");
-        }
-      });
-    </script>
   </body>
 </html>
