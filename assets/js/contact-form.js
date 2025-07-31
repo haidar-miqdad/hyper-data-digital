@@ -33,7 +33,7 @@ class ContactForm {
         this.updateLabelState(input)
       })
 
-      input.addEventListener("blur", () => {
+      input.addEventListener("blur-sm", () => {
         this.updateLabelState(input)
       })
 
@@ -65,7 +65,7 @@ class ContactForm {
     const inputs = this.form?.querySelectorAll(".form-input")
 
     inputs?.forEach((input) => {
-      input.addEventListener("blur", () => {
+      input.addEventListener("blur-sm", () => {
         this.validateField(input)
       })
 
