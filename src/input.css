@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --font-poppins: Poppins, sans-serif;
@@ -137,7 +137,39 @@
   margin-bottom: -1px;
 }
 
-/* Pastikan slide memiliki z-index yang tepat */
+/* ===== NAV LINK UNDERLINE ANIMATION (DESKTOP ONLY) ===== */
+.nav-link {
+  position: relative;
+}
+
+/* Desktop-only underline */
+@media (min-width: 768px) {
+  .nav-link {
+    padding-bottom: 2px;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #60a5fa;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-out, left 0.3s ease-out;
+  }
+
+  .nav-link:hover::after {
+    width: calc(100% - 1.5rem);
+    left: 50%;
+  }
+
+  .nav-link.active::after {
+    width: calc(100% - 1.5rem);
+    background-color: #385380;
+  }
+}
 /* Optimized Hero Slider CSS */
 .hero-slide {
   position: absolute;
@@ -204,21 +236,6 @@
 
 .skill-progress.animate {
   transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-/* Portfolio hover effects */
-.portfolio-item {
-  transform: translateY(30px);
-}
-
-.portfolio-item.animate {
-  animation: fadeUp 0.6s ease-out forwards;
-}
-
-.portfolio-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Testimonial carousel */
@@ -359,4 +376,15 @@
 
 .text-brand-blue-200 {
   color: #b3d1ff !important;
+}
+
+/* FAQ on contact page */
+.rotate-360 {
+  transform: rotate(360deg);
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }

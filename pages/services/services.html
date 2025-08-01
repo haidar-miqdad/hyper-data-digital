@@ -4,33 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services - Hyperdata Digital</title>
-    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="../../src/output.css" />
 
     <script src="/assets/js/main.js" defer></script>
     <script src="/assets/js/navbar.js" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "brand-blue": {
-                50: "#eff6ff",
-                100: "#dbeafe",
-                200: "#bfdbfe",
-                300: "#93c5fd",
-                400: "#60a5fa",
-                500: "#3b82f6",
-                600: "#2563eb",
-                700: "#1d4ed8",
-                800: "#1e40af",
-                900: "#1e3a8a",
-              },
-            },
-          },
-        },
-      };
-    </script>
   </head>
   <body class="bg-white text-gray-900">
     <!-- Include navbar -->
@@ -114,7 +91,7 @@
 
               <a
                 href="#service"
-                class="nav-link text-black hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                class="nav-link text-black hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200 active"
                 >Services</a
               >
 
@@ -153,29 +130,29 @@
         <div class="px-2 pt-2 pb-3 space-y-1 bg-white/10 backdrop-blur-lg">
           <a
             href="../../index.html"
-            class="block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >Home</a
           >
           <a
             href="/pages/about/about.html"
-            class="block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >About</a
           >
           <a
             href="/pages/services/services.html"
-            class="block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >Services</a
           >
 
           <a
             href="/pages/solutions/solutions.html"
-            class="nav-link block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >Solutions</a
           >
 
           <a
             href="/pages/contact/contact.html"
-            class="block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >Contact</a
           >
         </div>
@@ -184,7 +161,7 @@
 
     <!-- Hero Section -->
     <section
-      class="bg-linear-to-br from-brand-blue-600 to-brand-blue-800 text-white pt-20"
+      class="bg-linear-to-br bg-blue-500 to-brand-blue-800 text-white pt-20"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div class="text-center">
@@ -205,7 +182,7 @@
           <div
             class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
           >
-            <div class="bg-brand-blue-600 p-6">
+            <div class="bg-blue-500 p-6">
               <div class="flex items-center">
                 <div
                   class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-4"
@@ -231,9 +208,9 @@
             </div>
             <div class="p-6">
               <p class="text-gray-600 mb-6">
-                Build scalable, high-quality software solutions that solve
-                real-world problems, enhance user experience, and accelerate
-                business growth.
+                We offer full-cycle software development services—from analysis
+                and design to deployment and support—tailored to your unique
+                business processes and challenges.
               </p>
               <ul class="space-y-3 mb-6">
                 <li class="flex items-center">
@@ -310,11 +287,11 @@
             </div>
           </div>
 
-          <!-- Data Analytics -->
+          <!-- Consultancy -->
           <div
             class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
           >
-            <div class="bg-brand-blue-600 p-6">
+            <div class="bg-blue-500 p-6">
               <div class="flex items-center">
                 <div
                   class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-4"
@@ -333,13 +310,14 @@
                     ></path>
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">Dev Ops</h3>
+                <h3 class="text-2xl font-bold text-white">Consulting</h3>
               </div>
             </div>
             <div class="p-6">
               <p class="text-gray-600 mb-6">
-                Optimize your software delivery pipeline with automation,
-                monitoring, and scalable deployment strategies.
+                We provide expert IT consulting to help you strategize, plan,
+                and implement technology solutions that align with your business
+                objectives and drive growth.
               </p>
               <ul class="space-y-3 mb-6">
                 <li class="flex items-center">
@@ -356,7 +334,7 @@
                       d="M5 13l4 4L19 7"
                     ></path>
                   </svg>
-                  CI/CD Pipeline Automation
+                  Business-IT Alignment Strategy
                 </li>
                 <li class="flex items-center">
                   <svg
@@ -372,7 +350,7 @@
                       d="M5 13l4 4L19 7"
                     ></path>
                   </svg>
-                  IPerformance Monitoring
+                  Digital Transformation Roadmapping
                 </li>
                 <li class="flex items-center">
                   <svg
@@ -388,7 +366,7 @@
                       d="M5 13l4 4L19 7"
                     ></path>
                   </svg>
-                  Cloud Deployment & Scaling
+                  Technology Investment Advisory
                 </li>
                 <li class="flex items-center">
                   <svg
@@ -404,13 +382,13 @@
                       d="M5 13l4 4L19 7"
                     ></path>
                   </svg>
-                  Performance Monitoring
+                  IT Governance & Risk Assessment
                 </li>
               </ul>
               <div class="bg-gray-50 p-4 rounded-lg">
                 <p class="text-sm text-gray-600">
-                  <strong>Technologies:</strong> Python, Bash, Docker,
-                  Kubernetes, Jenkins, Terraform
+                  <strong>Technologies:</strong> Enterprise Architecture Tools,
+                  SAP, Oracle, Salesforce, Microsoft Power Platform
                 </p>
               </div>
             </div>
@@ -420,7 +398,7 @@
           <div
             class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
           >
-            <div class="bg-brand-blue-600 p-6">
+            <div class="bg-blue-500 p-6">
               <div class="flex items-center">
                 <div
                   class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-4"
@@ -440,14 +418,15 @@
                   </svg>
                 </div>
                 <h3 class="text-2xl font-bold text-white">
-                  Bussiness Intelligence
+                  Installation & Maintenance
                 </h3>
               </div>
             </div>
             <div class="p-6">
               <p class="text-gray-600 mb-6">
-                Transform your data into actionable insights to support
-                strategic business decisions.
+                Our team ensures smooth installation and ongoing maintenance of
+                your IT systems, guaranteeing reliability, performance, and
+                minimal downtime.
               </p>
               <ul class="space-y-3 mb-6">
                 <li class="flex items-center">
@@ -527,7 +506,7 @@
           <div
             class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
           >
-            <div class="bg-brand-blue-600 p-6">
+            <div class="bg-blue-500 p-6">
               <div class="flex items-center">
                 <div
                   class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-4"
@@ -551,8 +530,9 @@
             </div>
             <div class="p-6">
               <p class="text-gray-600 mb-6">
-                Ensure your digital platforms run smoothly with continuous
-                monitoring, maintenance, and support.
+                Our managed services offer end-to-end IT support and proactive
+                monitoring, allowing you to focus on your core business while we
+                handle your technology infrastructure.
               </p>
               <ul class="space-y-3 mb-6">
                 <li class="flex items-center">
@@ -646,7 +626,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="bg-white p-8 rounded-xl shadow-lg text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <svg
                 class="w-8 h-8 text-brand-blue-600"
@@ -672,7 +652,7 @@
           </div>
           <div class="bg-white p-8 rounded-xl shadow-lg text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <svg
                 class="w-8 h-8 text-brand-blue-600"
@@ -698,7 +678,7 @@
           </div>
           <div class="bg-white p-8 rounded-xl shadow-lg text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <svg
                 class="w-8 h-8 text-brand-blue-600"
@@ -740,7 +720,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold"
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold"
             >
               1
             </div>
@@ -752,7 +732,7 @@
           </div>
           <div class="text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold"
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold"
             >
               2
             </div>
@@ -764,7 +744,7 @@
           </div>
           <div class="text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold"
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold"
             >
               3
             </div>
@@ -778,7 +758,7 @@
           </div>
           <div class="text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold"
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold"
             >
               4
             </div>
@@ -793,18 +773,18 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-brand-blue-600 py-20">
+    <section class="bg-blue-200 py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
           Ready to Get Started?
         </h2>
-        <p class="text-xl text-brand-blue-100 mb-8 max-w-2xl mx-auto">
+        <p class="text-xl text-gray-500 mb-8 max-w-2xl mx-auto">
           Let's discuss your project requirements and create a custom solution
           that drives your business forward.
         </p>
         <a
           href="#contact"
-          class="bg-white text-brand-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-brand-blue-50 transition duration-300"
+          class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-brand-blue-50 transition duration-300"
         >
           Request a Consultation
         </a>
@@ -891,6 +871,5 @@
         </div>
       </div>
     </footer>
-
   </body>
 </html>

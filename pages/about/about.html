@@ -4,33 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Hyperdata Digital</title>
-    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="../../src/output.css" />
 
     <script src="/assets/js/main.js" defer></script>
     <script src="/assets/js/navbar.js" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "brand-blue": {
-                50: "#eff6ff",
-                100: "#dbeafe",
-                200: "#bfdbfe",
-                300: "#93c5fd",
-                400: "#60a5fa",
-                500: "#3b82f6",
-                600: "#2563eb",
-                700: "#1d4ed8",
-                800: "#1e40af",
-                900: "#1e3a8a",
-              },
-            },
-          },
-        },
-      };
-    </script>
   </head>
   <body class="bg-white text-gray-900">
     <!-- Include navbar -->
@@ -65,7 +42,7 @@
 
               <a
                 href="#about"
-                class="nav-link text-black hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                class="nav-link text-black hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200 active"
                 >About</a
               >
               <!-- <div class="relative dropdown">
@@ -154,31 +131,31 @@
         <div class="px-2 pt-2 pb-3 space-y-1 bg-white/10 backdrop-blur-lg">
           <a
             href="../../index.html"
-            class="block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >Home</a
           >
 
           <a
             href="#about"
-            class="block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >About</a
           >
 
           <a
             href="/pages/services/services.html"
-            class="block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >Services</a
           >
 
           <a
             href="/pages/solutions/solutions.html"
-            class="nav-link block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >Solutions</a
           >
 
           <a
             href="/pages/contact/contact.html"
-            class="block px-3 py-2 text-blue-400 hover:text-white text-base font-medium"
+            class="nav-link block px-3 py-2 text-blue-300 hover:text-blue-400 hover:text-xl transition-all duration-200 text-base font-medium"
             >Contact</a
           >
         </div>
@@ -186,7 +163,7 @@
     </nav>
     <!-- Hero Section -->
     <section
-      class="bg-linear-to-br from-brand-blue-600 to-brand-blue-800 text-white pt-20"
+      class="bg-linear-to-br bg-blue-500 to-brand-blue-800 text-white pt-20"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div class="text-center">
@@ -223,15 +200,11 @@
             </p>
             <div class="grid grid-cols-2 gap-6">
               <div class="text-center">
-                <div class="text-3xl font-bold text-brand-blue-600 mb-2">
-                  150+
-                </div>
+                <div class="text-3xl font-bold text-blue-600 mb-2">150+</div>
                 <div class="text-gray-600">Projects Completed</div>
               </div>
               <div class="text-center">
-                <div class="text-3xl font-bold text-brand-blue-600 mb-2">
-                  50+
-                </div>
+                <div class="text-3xl font-bold text-blue-600 mb-2">50+</div>
                 <div class="text-gray-600">Happy Clients</div>
               </div>
             </div>
@@ -269,7 +242,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="bg-white p-8 rounded-xl shadow-lg">
             <div
-              class="w-12 h-12 bg-brand-blue-100 rounded-lg flex items-center justify-center mb-6"
+              class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6"
             >
               <svg
                 class="w-6 h-6 text-brand-blue-600"
@@ -296,7 +269,7 @@
           </div>
           <div class="bg-white p-8 rounded-xl shadow-lg">
             <div
-              class="w-12 h-12 bg-brand-blue-100 rounded-lg flex items-center justify-center mb-6"
+              class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6"
             >
               <svg
                 class="w-6 h-6 text-brand-blue-600"
@@ -344,7 +317,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
             >
               <svg
                 class="w-8 h-8 text-white"
@@ -368,7 +341,7 @@
           </div>
           <div class="text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
             >
               <svg
                 class="w-8 h-8 text-white"
@@ -394,7 +367,7 @@
           </div>
           <div class="text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
             >
               <svg
                 class="w-8 h-8 text-white"
@@ -418,7 +391,7 @@
           </div>
           <div class="text-center">
             <div
-              class="w-16 h-16 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
             >
               <svg
                 class="w-8 h-8 text-white"
@@ -670,7 +643,7 @@
         <div class="text-center mt-12">
           <a
             href="#"
-            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-xs text-white bg-brand-blue-600 hover:bg-brand-blue-700 transition-colors duration-200"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-xs text-white bg-blue-600 hover:bg-brand-blue-700 transition-colors duration-200"
           >
             Explore All Resources
             <svg
@@ -690,18 +663,18 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-brand-blue-600 py-20">
+    <section class="bg-blue-200 py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
           Ready to Work With Us?
         </h2>
-        <p class="text-xl text-brand-blue-100 mb-8 max-w-2xl mx-auto">
+        <p class="text-xl text-gray-500 mb-8 max-w-2xl mx-auto">
           Let's discuss how we can help transform your business with innovative
           technology solutions.
         </p>
         <a
           href="contact.html"
-          class="bg-white text-brand-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-brand-blue-50 transition duration-300"
+          class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-brand-blue-50 transition duration-300"
         >
           Get In Touch
         </a>

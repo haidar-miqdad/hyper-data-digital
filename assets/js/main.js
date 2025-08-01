@@ -15,4 +15,25 @@ window.addEventListener("scroll", function () {
 });
 
 
+// toggle faq on contact page
+function toggleFAQ(id) {
+  const content = document.getElementById(`faq-content-${id}`);
+  const icon = document.getElementById(`faq-icon-${id}`);
+  
+  // Toggle the content visibility
+  content.classList.toggle('hidden');
+  
+  // Toggle the icon rotation
+  if (content.classList.contains('hidden')) {
+    icon.classList.remove('rotate-180');
+    icon.classList.add('text-gray-500');
+    icon.classList.remove('text-brand-blue-500');
+  } else {
+    icon.classList.add('rotate-180');
+    icon.classList.remove('text-gray-500');
+    icon.classList.add('text-brand-blue-500');
+  }
+}
+
+
 
